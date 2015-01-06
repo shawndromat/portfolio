@@ -142,6 +142,27 @@
     <% end %>
       </div><!-- row -->
     </div><!-- container -->
+    <br />
+		<br />
+		<div class="container" id="about" name="about">
+      <br>
+			<div class="row">
+        <br>
+				<div class="col-lg-offset-2 col-lg-8">
+				<h2 class="centered">TECHNOLOGIES</h2>
+				<hr>
+        <div class="row">
+          <% ["ruby", "js", "html5", "css", "rails", "backbone", "angular", "postgres"].each do |tech| %> 
+            <div class="col-xs-3 tech">
+              <img src="<%= image_url("tech-icons/#{tech}.png") %>" />
+              <p><%= tech %></p>
+            </div>
+          <% end %>
+        </div>
+        </div><!-- col-lg -->
+			</div><!-- row -->
+    </div><!-- container -->
+
 		<br />
 		<br />
 	
