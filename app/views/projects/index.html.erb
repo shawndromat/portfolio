@@ -125,6 +125,7 @@
 						        <div class="modal-body">
 						          <p><img class="img-responsive" src="<%= image_url(project.image_path) %>" alt=""></p>
                       <p><%= project.description %></p>
+                      <p>Technologies: <%= project.technologies %></p>
                       <p>
                       <% if project.live_url %>
                         <b><a href="<%= project.live_url %>">View live</a></b> |
