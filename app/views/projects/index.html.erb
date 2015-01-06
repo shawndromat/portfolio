@@ -124,13 +124,13 @@
 						        </div>
 						        <div class="modal-body">
 						          <p><img class="img-responsive" src="<%= image_url(project.image_path) %>" alt=""></p>
-                      <p><%= project.description %></p>
+                      <p><%= project.description.html_safe %></p>
                       <p>Technologies: <%= project.technologies %></p>
                       <p>
                       <% if project.live_url %>
-                        <b><a href="<%= project.live_url %>">View live</a></b> |
+                        <b><a href="<%= project.live_url %>" target="_blank">View live</a></b> |
                       <% end %>
-                      <b><a href="<%= project.github_url %>">View on Github</a></b>
+                      <b><a href="<%= project.github_url %>" target="_blank">View on Github</a></b>
                       </p>
 						        </div>
 						        <div class="modal-footer">
