@@ -13,7 +13,25 @@
  *= require_tree .
  *= require bootstrap
  *= require main
- *= require_tree ./icomoon
  *= require animate-custom
+ *= require font-awesome
  *= require_self
  */
+@font-face {
+  font-family: 'Font Awesome';
+  src: url(font-path('fontawesome-webfont.eot'));
+  src: url(font-path('fontawesome-webfont.woff')) format('woff');
+  src: url(font-path('fontawesome-webfont.ttf')) format('truetype');
+}
+@import "font-awesome";
+
+.contact {
+  text-align: center;
+}
+.contact-main i{
+  font-size: 4em;
+}
+
+.profile-pic {
+  margin-bottom: 40px;
+}

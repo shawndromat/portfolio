@@ -1,0 +1,169 @@
+      
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon icon-radio-checked" style="font-size:30px; color:#1abc9c;"></span>
+          </button>
+          <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-radio-checked" style="font-size:18px; color:#1abc9c;"></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#home" class="smoothScroll">Home</a></li>
+            <li> <a href="#about" class="smoothScroll"> About Me</a></li>
+            <li> <a href="#portfolio" class="smoothScroll"> Projects</a></li>
+            <li> <a href="#contact" class="smoothScroll"> Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+  
+  
+		<!-- ==== HEADERWRAP ==== -->
+	    <div id="headerwrap" id="home" name="home">
+			<header class="clearfix">
+	  		 		<h1>Shawna Mattison</h1>
+	  		 		<p>Web developer. Maker of things.</p>
+        <img src="<%= image_url('shawna.jpg') %>" alt="Shawna" class="col-lg-2 col-lg-offset-5 profile-pic img-circle"/>
+        <div class="row">
+          <div class="col-lg-4 col-lg-offset-4">
+            <div class="contact-main contact row">
+              <div class="col-xs-4"><a target="_blank" href="http://www.linkedin.com/in/shawnamattison"><%= icon('linkedin-square') %><p>LinkedIn</p></a></div>
+              <div class="col-xs-4"><a target="_blank" href="http://www.github.com/shawndromat"><%= icon('github') %><p>Github</p></a></div>
+              <div class="col-xs-4"><a target="_blank" href="mailto:shawnamatt@gmail.com"><%= icon('envelope') %><p>Email</p></a></div>
+            </div> 
+          </div><!-- col -->
+        </div>
+			
+	  		</header>	    
+	    </div><!-- /headerwrap -->
+
+		<!-- ==== GREYWRAP ==== -->
+		<div id="greywrap">
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-2 callout">
+					<span class="icon icon-stack"></span>
+					<!-- <h2>By day</h2> -->
+					<h2>BY DAY</h2>
+					<p>Web developer coding web apps from scratch</p>
+				</div><!-- col-lg-4 -->
+					
+				<div class="col-lg-4 callout">
+					<span class="icon icon-eye"></span>
+					<h2>BY NIGHT</H2>
+					<p>Entrepreneur and Creator at <a href="http://jimjamcrafts.etsy.com">Jim Jam Crafts on Etsy</a></p>
+				</div><!-- col-lg-4 -->	
+				
+			</div><!-- row -->
+		</div><!-- greywrap -->
+		<br />
+		<br />
+		<div class="container" id="about" name="about">
+      <br>
+			<div class="row">
+        <br>
+				<div class="col-lg-offset-3 col-lg-6">
+				<h2 class="centered">ABOUT ME</H2>
+				<hr>
+					<p>
+            I'm a web developer with an educational background in Linguistics and a business background in SaaS. I've got a history of turning data-driven insights into measurable improvement and optimization.
+					</p>
+          <p>For me, web development is about more than code, it's about creating great products. I not only love writing clean, expandable code based on SOLID principles but also using great software design to creatively solve difficult business problems.</p>
+          <p>I reject the front/back end split because I love working up and down the stack. My favorite code-related things to do are:
+          <ul>
+            <li>refactoring chunks of code into new modules and classes</li>
+            <li>orchestrating the data hand-off between front and back end</li>
+            <li>killing n+1 queries</li>
+          </ul>
+          </p>
+				</div><!-- col-lg -->
+			</div><!-- row -->
+    </div><!-- container -->
+				<!-- ==== PORTFOLIO ==== -->
+		<div class="container" id="portfolio" name="portfolio">
+		<br>
+			<div class="row">
+				<br>
+				<h1 class="centered">PROJECTS</h1>
+        <hr>
+				<br>
+				<br>
+			</div><!-- /row -->
+			<div class="container">
+			<div class="row">	
+			
+				<!-- PORTFOLIO IMAGE 1 -->
+        <% @projects.each_with_index do |project, index| %>
+          <% if index == @projects.length - 1 && index % 2 == 0 %>
+            <% offset = "col-md-offset-3" %>
+          <% end %>
+          <div class="col-md-6 <%= offset %>">
+			    	<div class="grid mask">
+						<figure>
+            <img class="img-responsive" src="<%= image_url(project.image_path) %>" alt="">
+							<figcaption>
+              <h5><%= project.name %></h5>
+              <a data-toggle="modal" href="#<%= project.short_name %>" class="btn btn-primary btn-lg">Take a Look</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+				
+				
+						 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
+						      a modal for each of your projects. -->
+						      
+                  <div class="modal fade" id="<%= project.short_name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title"><%= project.name %></h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="<%= image_url(project.image_path) %>" alt=""></p>
+                      <p><%= project.description %></p>
+                      <p>
+                      <% if project.live_url %>
+                        <b><a href="<%= project.live_url %>">View live</a></b> |
+                      <% end %>
+                      <b><a href="<%= project.github_url %>">View on Github</a></b>
+                      </p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+				
+    <% end %>
+      </div><!-- row -->
+    </div><!-- container -->
+		<br />
+		<br />
+	
+		<!-- ==== SECTION DIVIDER6 ==== -->
+		
+		<div class="container" id="contact" name="contact">
+			<div class="row">
+			<br>
+				<h1 class="centered">CONTACT ME</h1>
+				<hr>
+				<br>
+				<br>
+				<div class="col-lg-4 col-lg-offset-4">
+          <div class="contact-main contact row">
+            <div class="col-xs-4"><a target="_blank" href="http://www.linkedin.com/in/shawnamattison"><%= icon('linkedin-square') %><p>LinkedIn</p></a></div>
+            <div class="col-xs-4"><a target="_blank" href="http://www.github.com/shawndromat"><%= icon('github') %><p>Github</p></a></div>
+            <div class="col-xs-4"><a target="_blank" href="mailto:shawnamatt@gmail.com"><%= icon('envelope') %><p>Email</p></a></div>
+          </div> 
+				</div><!-- col -->
+			</div>
+		<div id="footerwrap">
+			<div class="container">
+        <h4>Theme by <a href="http://alvarez.is">Alvarez.is</a> - Copyright <%= Time.now.year %></h4>
+			</div>
+		</div>

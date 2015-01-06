@@ -85,8 +85,8 @@ body {
 
 body {
     font-family: "Lato";
-    font-weight: 300;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 2em;
     color: #555;
 
     -webkit-font-smoothing: antialiased;
@@ -325,6 +325,19 @@ a:after {
 	margin-left: 15px;
 	// text-shadow: 1px 1px 1px #000;
   text-transform: lowercase;
+}
+#headerwrap a {
+	color: #16a085;
+}
+
+#headerwrap a:hover, #headerwrap a:hover p {
+  color: #c0392b;
+}
+
+#headerwrap a p {
+  color: #16a085;
+  font-size: 1em;
+  margin-left: 0;
 }
 
 #greywrap {
