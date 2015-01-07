@@ -1,7 +1,5 @@
 class Project < ActiveRecord::Base
-  def self.visible
-    self.all.where(visible: true)
-  end
+  default_scope { where(visible: true).order(:rank) }
 
   def github=(path)
     self.github_url = "http://www.github.com/shawndromat/#{path}"
