@@ -5,8 +5,8 @@
   height: 100px;
   font-family: 'Lato', sans-serif;
   font-size: inherit;
-  width: 1000px;
   margin: auto;
+  box-sizing: border-box;
 }
 
 
@@ -23,28 +23,29 @@
 }
 
 .text-slider .verb {
-  width: 40%;
+  /* width: 35%; */
 }
 
 .text-slider .predicate {
-  width: 60%;
+  /* width: 65%; */
 }
 
 .text-slider > div > p {
   padding: 5px;
   position: absolute;
-  top: 0%;
-  transition: top 1s ease-in-out, bottom 1s ease-in-out;
+  bottom: 0%;
+  transition: top 1s ease-in-out, bottom 1s ;
 }
+
 
 .text-slider > div > p:not(.active) {
   display: none;
 }
 
 .text-slider p.top {
-  top: -100px;
+  bottom: 100%;
 }
 
 .text-slider p.bottom {
-  top: 100px;
+  bottom: -100%;
 }

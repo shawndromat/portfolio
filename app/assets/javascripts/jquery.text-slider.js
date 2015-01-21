@@ -3,6 +3,8 @@
 
   $.TextSlider = function(el, options) {
     this.$el = $(el);
+    this.$verbWrap = this.$el.find('.verb');
+    this.$predWrap = this.$el.find('.predicate');
     this.verbIndex = 0;
     this.predicateIndex = 0;
     this.currPredicateIndex = 0;
@@ -27,8 +29,7 @@
   $.TextSlider.prototype.populate = function() {
     this.populateVerbs();
     this.populatePredicates();
-    this.$verbs.children().first().addClass('active');
-    this.$predicates.children().first().addClass('active');
+    // this.updateElements();
   }
 
   $.TextSlider.prototype.populateVerbs = function() {
@@ -37,7 +38,25 @@
       var $verb = $('<p></p>').text(this.verbs()[i]);
       $verbs.push($verb);
     }
-    this.$verbs = this.$el.find('.verb').append($verbs);
+    this.$verbWrap.append($verbs);
+    this.$verbs = this.$verbWrap.children();
+  }
+
+  $.TextSlider.prototype.setCurrentVerb = function() {
+    this.$currVerb = this.$verbs.eq(this.verbIndex);
+    this.$currVerb.addClass('active');
+    this.$verbWrap.width(this.$currVerb.outerWidth(true) + 20);
+  }
+
+  $.TextSlider.prototype.setCurrentPred = function() {
+    this.$currPred = this.$predWrap.children().eq(this.predicateIndex)
+    this.$currPred.addClass('active');
+    this.$predWrap.width(this.$currPred.outerWidth(true) + 200);
+  }
+
+  $.TextSlider.prototype.setWidth = function() {
+    var totalWidth = this.$currVerb.outerWidth(true) + this.$currPred.outerWidth(true);
+    this.$el.width(totalWidth + 10);
   }
 
   $.TextSlider.prototype.populatePredicates = function() {
@@ -51,7 +70,13 @@
         $predicates.push($predicate);
       }
     }
-    this.$predicates = this.$el.find('.predicate').append($predicates);
+    this.$predWrap.append($predicates);
+  }
+
+  $.TextSlider.prototype.updateElements = function() {
+    this.setCurrentVerb();
+    this.setCurrentPred();
+    this.setWidth();
   }
 
   $.TextSlider.prototype.run = function() {
@@ -68,14 +93,14 @@
     var $oldVerb,
         $newVerb;
 
-    var $oldItem = (this.$predicates.children().eq(this.predicateIndex));
+    var $oldItem = (this.$predWrap.children().eq(this.predicateIndex));
     if (this.incrementPredicate()) {
-      var $oldVerb = (this.$verbs.children().eq(this.verbIndex));
+      var $oldVerb = (this.$verbWrap.children().eq(this.verbIndex));
       this.verbIndex = (this.verbIndex + 1 + this.verbs().length) % this.verbs().length;
-      var $newVerb = (this.$verbs.children().eq(this.verbIndex));
+      var $newVerb = (this.$verbWrap.children().eq(this.verbIndex));
     }
     console.log(this.predicateIndex);
-    var $newItem = (this.$predicates.children().eq(this.predicateIndex));
+    var $newItem = (this.$predWrap.children().eq(this.predicateIndex));
 
 
     $newItem.addClass('bottom active');
@@ -87,10 +112,10 @@
 
 
     setTimeout(function() {
-      $newItem.removeClass('bottom');
-      $newVerb && $newVerb.removeClass('top');
       $oldItem.addClass('top');
       $oldVerb && $oldVerb.addClass("bottom");
+      $newItem.removeClass('bottom');
+      $newVerb && $newVerb.removeClass('top');
     }, 0);
   }
 
