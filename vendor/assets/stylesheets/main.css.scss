@@ -277,7 +277,7 @@ a:after {
    Wrap Sections
    ========================================================================== */
 
-#headerwrap {
+.headerwrap {
 	// background: image_url('sf_skyline_2.jpg') no-repeat center top;
   background-color: #76cb9d;
 	margin-top: -50px;
@@ -299,23 +299,23 @@ a:after {
     background-size: cover;
 }
 
-#headerwrap h1 {
+.headerwrap h1 {
 	color: #76cb9d;
 	color: #fff;
 	margin-top: 90px;
 	padding-bottom: 30px;
 	// letter-spacing: 4px;
-	font-size: 100px;
+	font-size: 60px;
 	font-weight: bold;
 	// text-shadow: 2px 2px 2px #000;
   text-transform: uppercase;
 }
 
-#headerwrap img {
+.headerwrap img {
   width: 200px;
 }
 
-#headerwrap p {
+.headerwrap p {
 	color:#ffffff;
 	font-size: 40px;
 	font-weight: bold;
@@ -326,15 +326,15 @@ a:after {
 	// text-shadow: 1px 1px 1px #000;
   text-transform: lowercase;
 }
-#headerwrap a {
+.headerwrap a {
 	color: #16a085;
 }
 
-#headerwrap a:hover, #headerwrap a:hover p {
+.headerwrap a:hover, .headerwrap a:hover p {
   color: #c0392b;
 }
 
-#headerwrap a p {
+.headerwrap a p {
   color: #16a085;
   font-size: 1em;
   margin-left: 0;
@@ -757,10 +757,10 @@ a:after {
 }
 
 @media screen and (max-width:769px) {
-	#headerwrap h1 {
+	.headerwrap h1 {
 		font-size: 80px;
 	}
-	#headerwrap p {
+	.headerwrap p {
 		font-size: 30px;
 		line-height: 38px;
 	}

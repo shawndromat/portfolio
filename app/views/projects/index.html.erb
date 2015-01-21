@@ -22,11 +22,16 @@
   
   
 		<!-- ==== HEADERWRAP ==== -->
-	    <div id="headerwrap" id="home" name="home">
+	    <div class="headerwrap" id="home" name="home">
 			<header class="clearfix">
-	  		 		<h1>Shawna Mattison</h1>
-	  		 		<p>Web developer. Maker of things.</p>
-        <img src="<%= image_url('shawna.jpg') %>" alt="Shawna" class="col-lg-2 col-lg-offset-5 profile-pic img-circle"/>
+	  		 		<!-- <h1>Shawna Mattison</h1> -->
+	  		 		<!-- <p>Web developer</p> -->
+        <!-- <img src="<%= image_url('shawna.jpg') %>" alt="Shawna" class="col&#45;lg&#45;2 col&#45;lg&#45;offset&#45;5 profile&#45;pic img&#45;circle"/> -->
+
+        <div class="text-slider">
+          <div class="verb"></div>
+          <div class="predicate"></div>
+        </div>
         <div class="row">
           <div class="col-lg-4 col-lg-offset-4">
             <div class="contact-main contact row">
@@ -39,48 +44,35 @@
 			
 	  		</header>	    
 	    </div><!-- /headerwrap -->
-
-		<!-- ==== GREYWRAP ==== -->
-		<div id="greywrap">
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-2 callout">
-					<span class="icon icon-stack"></span>
-					<!-- <h2>By day</h2> -->
-					<h2>BY DAY</h2>
-					<p>Web developer coding web apps from scratch</p>
-				</div><!-- col-lg-4 -->
-					
-				<div class="col-lg-4 callout">
-					<span class="icon icon-eye"></span>
-					<h2>BY NIGHT</H2>
-					<p>Entrepreneur and Creator at <a href="http://jimjamcrafts.etsy.com">Jim Jam Crafts on Etsy</a></p>
-				</div><!-- col-lg-4 -->	
-				
-			</div><!-- row -->
-		</div><!-- greywrap -->
-		<br />
-		<br />
-		<div class="container" id="about" name="about">
-      <br>
-			<div class="row">
-        <br>
-				<div class="col-lg-offset-3 col-lg-6">
-				<h2 class="centered">ABOUT ME</H2>
-				<hr>
-					<p>
-            I'm a web developer with an educational background in Linguistics and a business background in SaaS. I've got a history of turning data-driven insights into measurable improvement and optimization.
-					</p>
-          <p>For me, web development is about more than code, it's about creating great products. I not only love writing clean, expandable code based on SOLID principles but also using great software design to creatively solve difficult business problems.</p>
-          <p>I reject the front/back end split because I love working up and down the stack. My favorite code-related things to do are:
-          <ul>
-            <li>refactoring chunks of code into new modules and classes</li>
-            <li>orchestrating the data hand-off between front and back end</li>
-            <li>killing n+1 queries</li>
-          </ul>
-          </p>
-				</div><!-- col-lg -->
-			</div><!-- row -->
-    </div><!-- container -->
+    
+		<!-- <div class="container" id="about" name="about"> -->
+    <!--   <br> -->
+		<!-- 	<div class="row"> -->
+    <!--     <br> -->
+		<!-- 		<div class="col&#45;lg&#45;offset&#45;3 col&#45;lg&#45;6"> -->
+    <!--       <div class="scroller"></div> -->
+		<!-- 		<h2 class="centered">I AM</h2> -->
+		<!-- 		<hr> -->
+    <!--       <ul> -->
+    <!--         <li>a web developer</li> -->
+    <!--         <li>a crafter</li> -->
+    <!--         <li>product&#45;oriented</li> -->
+    <!--         <li>data&#45;driven</li> -->
+    <!--         <li>passionate about clean code</li> -->
+    <!--         <li>thirsty for creative problem solving</li> -->
+    <!--       </ul> -->
+        <!--   <p>For me, web development is about more than code, it's about creating great products. I not only love writing clean, expandable code based on SOLID principles but also using great software design to creatively solve difficult business problems.</p> -->
+        <!--   <p>I reject the front/back end split because I love working up and down the stack. My favorite code&#45;related things to do are: -->
+        <!--   <ul> -->
+        <!--     <li>learning about new Javascript MVC frameworks</li> -->
+        <!--     <li>refactoring chunks of code into new modules and classes</li> -->
+        <!--     <li>orchestrating the data hand&#45;off between front and back end</li> -->
+        <!--     <li>killing n+1 queries</li> -->
+        <!--   </ul> -->
+      <!--   <!&#45;&#45;   </p> &#45;&#45;> -->
+			<!-- 	</div><!&#45;&#45; col&#45;lg &#45;&#45;> -->
+			<!-- </div><!&#45;&#45; row &#45;&#45;> -->
+    <!-- </div><!&#45;&#45; container &#45;&#45;> -->
 				<!-- ==== PORTFOLIO ==== -->
 		<div class="container" id="portfolio" name="portfolio">
 		<br>
@@ -189,3 +181,14 @@
         <h4>Theme by <a href="http://alvarez.is">Alvarez.is</a> - Copyright <%= Time.now.year %></h4>
 			</div>
 		</div>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $('.text-slider').textSlider({
+          content: {
+          "I am": ["Shawna Mattison", "a web developer", "a maker"],
+          "I love": ["clean code", "problem solving"],
+          "I create with": ["ruby", "javascript", "rails", "backbone", "angular"]
+          }
+        });
+      });
+    </script>

@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require bootstrap
+ *= require jquery.text-slider
  *= require main
  *= require animate-custom
  *= require font-awesome
@@ -53,4 +54,9 @@
 .grid figure {
   height: 275px;
   overflow: hidden;
+}
+
+
+.text-slider {
+  margin-top: 200px;
 }

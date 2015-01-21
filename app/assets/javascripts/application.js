@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.text-slider
 //= require modernizr.custom
 //= require turbolinks
 //= require bootstrap.min
-//= require retina
 //= require jquery.easing.1.3
 //= require smoothscroll
 //= require_tree .
