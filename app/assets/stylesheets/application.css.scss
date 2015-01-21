@@ -31,6 +31,7 @@
 }
 .contact-main i{
   font-size: 4em;
+  margin-bottom: 50px;
 }
 
 .profile-pic {
@@ -52,11 +53,20 @@
 }
 
 .grid figure {
-  height: 275px;
-  overflow: hidden;
+  // height: 275px;
+  // overflow: hidden;
 }
 
 
 .text-slider {
-  margin: 200px auto 180px;
+  // margin: 200px auto 180px;
+  margin-top: 100px;
+}
+
+.headerwrap p {
+  font-size: 80px;
+}
+
+.project-row {
+  margin-bottom: 100px;
 }

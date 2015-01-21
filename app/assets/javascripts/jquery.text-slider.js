@@ -78,19 +78,23 @@
     var $newItem = (this.$predicates.children().eq(this.predicateIndex));
 
 
-    $newItem.addClass('bottom active');
-    $newVerb && $newVerb.addClass('top active');
     $oldItem.one("transitionend", (function() {
-      $oldItem.removeClass("active top");
-      $oldVerb && $oldVerb.removeClass("active bottom");
+      $oldItem.removeClass("active fade");
+      $oldVerb && $oldVerb.removeClass("active fade");
+      $newItem.addClass('active');
+      $newVerb && $newVerb.addClass('active');
+      setTimeout(function() {
+        $newVerb && $newVerb.removeClass('fade');
+        $newItem.removeClass('fade');
+      }, 0)
     }).bind(this));
 
 
     setTimeout(function() {
-      $newItem.removeClass('bottom');
-      $newVerb && $newVerb.removeClass('top');
-      $oldItem.addClass('top');
-      $oldVerb && $oldVerb.addClass("bottom");
+      $newItem.addClass('fade');
+      $newVerb && $newVerb.addClass('fade');
+      $oldVerb && $oldVerb.addClass('fade');
+      $oldItem.addClass('fade');
     }, 0);
   }
 

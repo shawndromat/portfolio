@@ -317,14 +317,14 @@ a:after {
 
 .headerwrap p {
 	color:#ffffff;
-	font-size: 60px;
+	font-size: 40px;
 	font-weight: bold;
 	text-align: center;
 	line-height: 40px;
 	// letter-spacing: 3px;
 	margin-left: 15px;
 	// text-shadow: 1px 1px 1px #000;
-  text-transform: lowercase;
+  // text-transform: lowercase;
 }
 .headerwrap a {
 	color: #16a085;
@@ -573,13 +573,13 @@ a:after {
 	transition: transform 0.4s;
 }
 
-.no-touch .mask figure:hover img,
-.mask figure.cs-hover img {
-	-webkit-transform: translateY(-30px);
-	-moz-transform: translateY(-30px);
-	-ms-transform: translateY(-30px);
-	transform: translateY(-30px);
-}
+// .no-touch .mask figure:hover img,
+// .mask figure.cs-hover img {
+// 	-webkit-transform: translateY(-30px);
+// 	-moz-transform: translateY(-30px);
+// 	-ms-transform: translateY(-30px);
+// 	transform: translateY(-30px);
+// }
 
 .mask figcaption {
 	height: 50px;

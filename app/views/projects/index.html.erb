@@ -11,7 +11,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#home" class="smoothScroll">Home</a></li>
-            <li> <a href="#about" class="smoothScroll"> About Me</a></li>
+            <!-- <li> <a href="#about" class="smoothScroll"> About Me</a></li> -->
             <li> <a href="#portfolio" class="smoothScroll"> Projects</a></li>
             <li> <a href="#contact" class="smoothScroll"> Contact</a></li>
           </ul>
@@ -26,12 +26,12 @@
 			<header class="clearfix">
 	  		 		<!-- <h1>Shawna Mattison</h1> -->
 	  		 		<!-- <p>Web developer</p> -->
-        <!-- <img src="<%= image_url('shawna.jpg') %>" alt="Shawna" class="col&#45;lg&#45;2 col&#45;lg&#45;offset&#45;5 profile&#45;pic img&#45;circle"/> -->
 
         <div class="text-slider">
           <div class="verb"></div>
           <div class="predicate"></div>
         </div>
+        <img src="<%= image_url('shawna.jpg') %>" alt="Shawna" class="col-lg-2 col-lg-offset-5 profile-pic img-circle"/>
         <div class="row">
           <div class="col-lg-4 col-lg-offset-4">
             <div class="contact-main contact row">
@@ -45,34 +45,6 @@
 	  		</header>	    
 	    </div><!-- /headerwrap -->
     
-		<!-- <div class="container" id="about" name="about"> -->
-    <!--   <br> -->
-		<!-- 	<div class="row"> -->
-    <!--     <br> -->
-		<!-- 		<div class="col&#45;lg&#45;offset&#45;3 col&#45;lg&#45;6"> -->
-    <!--       <div class="scroller"></div> -->
-		<!-- 		<h2 class="centered">I AM</h2> -->
-		<!-- 		<hr> -->
-    <!--       <ul> -->
-    <!--         <li>a web developer</li> -->
-    <!--         <li>a crafter</li> -->
-    <!--         <li>product&#45;oriented</li> -->
-    <!--         <li>data&#45;driven</li> -->
-    <!--         <li>passionate about clean code</li> -->
-    <!--         <li>thirsty for creative problem solving</li> -->
-    <!--       </ul> -->
-        <!--   <p>For me, web development is about more than code, it's about creating great products. I not only love writing clean, expandable code based on SOLID principles but also using great software design to creatively solve difficult business problems.</p> -->
-        <!--   <p>I reject the front/back end split because I love working up and down the stack. My favorite code&#45;related things to do are: -->
-        <!--   <ul> -->
-        <!--     <li>learning about new Javascript MVC frameworks</li> -->
-        <!--     <li>refactoring chunks of code into new modules and classes</li> -->
-        <!--     <li>orchestrating the data hand&#45;off between front and back end</li> -->
-        <!--     <li>killing n+1 queries</li> -->
-        <!--   </ul> -->
-      <!--   <!&#45;&#45;   </p> &#45;&#45;> -->
-			<!-- 	</div><!&#45;&#45; col&#45;lg &#45;&#45;> -->
-			<!-- </div><!&#45;&#45; row &#45;&#45;> -->
-    <!-- </div><!&#45;&#45; container &#45;&#45;> -->
 				<!-- ==== PORTFOLIO ==== -->
 		<div class="container" id="portfolio" name="portfolio">
 		<br>
@@ -86,23 +58,30 @@
 			<div class="container">
 			<div class="row">	
 			
-				<!-- PORTFOLIO IMAGE 1 -->
         <% @projects.each_with_index do |project, index| %>
-          <% if index == @projects.length - 1 && index % 2 == 0 %>
-            <% offset = "col-md-offset-3" %>
-          <% end %>
-          <div class="col-md-6 <%= offset %>">
-			    	<div class="grid mask">
-						<figure>
-            <img class="img-responsive" src="<%= image_url(project.image_path) %>" alt="">
-							<figcaption>
-              <h5><%= project.name %></h5>
-              <a data-toggle="modal" href="#<%= project.short_name %>" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
+          <div class="row project-row">
+            
+            <div class="col-md-6">
+              <div class="grid mask">
+              <figure>
+              <img class="img-responsive" src="<%= image_url(project.image_path) %>" alt="">
+              </figure><!-- /figure -->
+              </div><!-- /grid-mask -->
+          </div><!-- /col -->
 				
+          <div class="col-md-6">
+            <h2><%= project.name %></h2>
+            <p><%= project.description.html_safe %></p>
+            <p>Technologies: <%= project.technologies %></p>
+            <p>
+              <% if project.live_url %>
+                <b><a href="<%= project.live_url %>" target="_blank">View live</a></b> |
+              <% end %>
+              <b><a href="<%= project.github_url %>" target="_blank">View on Github</a></b>
+              </p>
+
+          </div>
+        </div><!-- row  -->
 				
 						 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
 						      a modal for each of your projects. -->
@@ -116,15 +95,7 @@
 						        </div>
 						        <div class="modal-body">
 						          <p><img class="img-responsive" src="<%= image_url(project.image_path) %>" alt=""></p>
-                      <p><%= project.description.html_safe %></p>
-                      <p>Technologies: <%= project.technologies %></p>
-                      <p>
-                      <% if project.live_url %>
-                        <b><a href="<%= project.live_url %>" target="_blank">View live</a></b> |
-                      <% end %>
-                      <b><a href="<%= project.github_url %>" target="_blank">View on Github</a></b>
-                      </p>
-						        </div>
+                      						        </div>
 						        <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        </div>
@@ -187,7 +158,7 @@
           content: {
           "I am": ["Shawna Mattison", "a web developer", "a maker"],
           "I love": ["clean code", "problem solving"],
-          "I create": ["with ruby", "with javascript", "with rails", "with backbone.js", "with angular.js"]
+          "I create with": ["Ruby", "JavaScript", "Rails", "Backbone.js", "Angular.js"]
           }
         });
       });
