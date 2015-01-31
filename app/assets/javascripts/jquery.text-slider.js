@@ -74,7 +74,6 @@
       this.verbIndex = (this.verbIndex + 1 + this.verbs().length) % this.verbs().length;
       var $newVerb = (this.$verbs.children().eq(this.verbIndex));
     }
-    console.log(this.predicateIndex);
     var $newItem = (this.$predicates.children().eq(this.predicateIndex));
 
 
